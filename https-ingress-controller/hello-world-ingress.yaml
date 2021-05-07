@@ -1,7 +1,8 @@
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-world-ingress
+  namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/rewrite-target: /$1
@@ -16,15 +17,24 @@ spec:
     - host: hello-world-ingress.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       http:
         paths:
-          - backend:
-              serviceName: aks-helloworld-one
-              servicePort: 80
-            path: /hello-world-one(/|$)(.*)
-          - backend:
-              serviceName: aks-helloworld-two
-              servicePort: 80
-            path: /hello-world-two(/|$)(.*)
-          - backend:
-              serviceName: aks-helloworld-one
-              servicePort: 80
-            path: /(.*)
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: external-aks-helloworld-one
+                port:
+                  number: 80
+          - path: /hello-world-one
+            pathType: Prefix
+            backend:
+              service:
+                name: external-aks-helloworld-one
+                port:
+                  number: 80
+          - path: /hello-world-two
+            pathType: Prefix
+            backend:
+              service:
+                name: external-aks-helloworld-two
+                port:
+                  number: 80
