@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aks-helloworld-two
+  namespace: test
 spec:
   replicas: 1
   selector:
@@ -25,9 +26,19 @@ apiVersion: v1
 kind: Service
 metadata:
   name: aks-helloworld-two
+  namespace: test
 spec:
   type: ClusterIP
   ports:
     - port: 80
   selector:
     app: aks-helloworld-two
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-aks-helloworld-two
+  namespace: ingress-basic
+spec:
+  type: ExternalName
+  externalName: aks-helloworld-two.test
