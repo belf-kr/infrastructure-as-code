@@ -19,9 +19,10 @@ kubectl get certificate -n ingress-basic
 
 ## Spec
 
-|     |               |
-| --- | ------------- |
-| ns  | ingress-basic |
+1. ns
+   1. ingress-basic
+1. 다른 ns에서 생성된 service를 가져오는 경우 `external-{사용하는 서비스 이름}` 으로 네이밍
+1. tls의 경우 `tls-{도메인 주소}` 으로 네이밍
 
 ## 생성 및 업데이트
 
