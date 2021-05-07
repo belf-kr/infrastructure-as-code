@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: hello-world-ingress
+  name: main-ingress
   namespace: ingress-basic
   annotations:
     kubernetes.io/ingress.class: nginx
@@ -12,7 +12,10 @@ spec:
   tls:
     - hosts:
         - hello-world-ingress.e654a42ba97247c3a6cb.koreacentral.aksapp.io
-      secretName: tls-secret
+      secretName: tls-hello-world-ingress
+    - hosts:
+        - dev.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+      secretName: tls-dev
   rules:
     - host: hello-world-ingress.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       http:
@@ -38,3 +41,13 @@ spec:
                 name: external-aks-helloworld-two
                 port:
                   number: 80
+    - host: dev.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: external-node-test
+                port:
+                  number: 8080

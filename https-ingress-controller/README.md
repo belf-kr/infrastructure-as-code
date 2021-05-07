@@ -1,16 +1,43 @@
-# 업데이트 방법
+# Hi
+
+HTTP ingress를 생성하는 방법에 대해 가이드합니다.  
+사전에 [해당 문서](https://docs.microsoft.com/ko-kr/azure/aks/ingress-tls)를 통해 `NGINX 수신 컨트롤러`, `인증서 관리자 컨트롤러` 활성화를 필수 조건으로 합니다.
+
+# Let's Encrypt 발급자 생성
 
 ```shell
 kubectl apply -f cluster-issuer.yaml
-kubectl apply -f hello-world-ingress.yaml --namespace ingress-basic
 ```
 
-# 테스트 컨테이너
+아래의 명령어를 통해 발급된 TLS를 확인할 수 있습니다.
 
-삭제하기 편하도록 `test` namespace에서 진행하였습니다.
+```shell
+kubectl get certificate -n ingress-basic
+```
+
+# Ingress
+
+## Spec
+
+|     |               |
+| --- | ------------- |
+| ns  | ingress-basic |
+
+## 생성 및 업데이트
+
+```shell
+kubectl apply -f main-ingress.yaml
+```
+
+# 이외
+
+## 수신 구성 테스트
+
+삭제하기 편하도록 `test` namespace에서 실행하도록 되어있습니다.
 
 ```shell
 kubectl create ns test
-kubectl apply -f aks-helloworld-one.yaml -n test
-kubectl apply -f aks-helloworld-two.yaml -n test
+kubectl apply -f aks-helloworld-one.yaml
+kubectl apply -f aks-helloworld-two.yaml
+kubectl apply -f node-test.yaml
 ```

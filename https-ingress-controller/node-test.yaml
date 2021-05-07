@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-test
+  namespace: test
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-test
+  template:
+    metadata:
+      labels:
+        app: node-test
+    spec:
+      containers:
+        - name: node
+          image: ghcr.io/parkgang/container-playground/image:698e5c20cbf05aac703511e7955dfd6a5b3d1d01
+          env:
+            - name: ENV_TEST
+              value: 'k8s_run'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-test
+  namespace: test
+spec:
+  type: ClusterIP
+  ports:
+    - port: 8080
+  selector:
+    app: node-test
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-node-test
+  namespace: ingress-basic
+spec:
+  type: ExternalName
+  externalName: node-test.test
