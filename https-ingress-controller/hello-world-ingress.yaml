@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - hello-world-ingress.MY_CUSTOM_DOMAIN
+        - hello-world-ingress.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       secretName: tls-secret
   rules:
-    - host: hello-world-ingress.MY_CUSTOM_DOMAIN
+    - host: hello-world-ingress.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       http:
         paths:
           - backend:
@@ -28,26 +28,3 @@ spec:
               serviceName: aks-helloworld-one
               servicePort: 80
             path: /(.*)
----
-apiVersion: networking.k8s.io/v1beta1
-kind: Ingress
-metadata:
-  name: hello-world-ingress-static
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    nginx.ingress.kubernetes.io/rewrite-target: /static/$2
-    nginx.ingress.kubernetes.io/use-regex: 'true'
-    cert-manager.io/cluster-issuer: letsencrypt
-spec:
-  tls:
-    - hosts:
-        - hello-world-ingress.MY_CUSTOM_DOMAIN
-      secretName: tls-secret
-  rules:
-    - host: hello-world-ingress.MY_CUSTOM_DOMAIN
-      http:
-        paths:
-          - backend:
-              serviceName: aks-helloworld-one
-              servicePort: 80
-            path: /static(/|$)(.*)
