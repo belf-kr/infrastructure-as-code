@@ -55,7 +55,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: external-node-test
+                name: external-test-node-test
                 port:
                   number: 8080
     - host: hello-world.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
@@ -65,21 +65,21 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: external-aks-helloworld-one
+                name: external-test-aks-helloworld-one
                 port:
                   number: 80
           - path: /hello-world-one
             pathType: Prefix
             backend:
               service:
-                name: external-aks-helloworld-one
+                name: external-test-aks-helloworld-one
                 port:
                   number: 80
           - path: /hello-world-two
             pathType: Prefix
             backend:
               service:
-                name: external-aks-helloworld-two
+                name: external-test-aks-helloworld-two
                 port:
                   number: 80
     # dev

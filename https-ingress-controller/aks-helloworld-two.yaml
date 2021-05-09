@@ -37,7 +37,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: external-aks-helloworld-two
+  name: external-test-aks-helloworld-two
   namespace: ingress-basic
 spec:
   type: ExternalName

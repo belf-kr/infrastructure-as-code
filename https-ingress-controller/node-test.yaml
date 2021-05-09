@@ -35,7 +35,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: external-node-test
+  name: external-test-node-test
   namespace: ingress-basic
 spec:
   type: ExternalName
