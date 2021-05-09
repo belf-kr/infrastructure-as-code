@@ -10,6 +10,10 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
+    # 주의❗️
+    # Error Message: Error finalizing order :: CSR doesn't contain a SAN short enough to fit in CN
+    # [CN는 최대 64자 까지만 가능합니다.](https://community.letsencrypt.org/t/certbot-errors-with-obtaining-a-new-certificate-an-unexpected-error-occurred-the-csr-is-unacceptable-e-g-due-to-a-short-key-error-finalizing-order-issuing-precertificate-csr-doesnt-contain-a-san-short-enough-to-fit-in-cn/105513)
+
     # test
     - hosts:
         - test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
@@ -18,8 +22,8 @@ spec:
         - node-test.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       secretName: tls-node-test.test
     - hosts:
-        - hello-world-ingress.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
-      secretName: tls-hello-world-ingress.test
+        - hello-world.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+      secretName: tls-hello-world.test
     # dev
     - hosts:
         - dev.e654a42ba97247c3a6cb.koreacentral.aksapp.io
@@ -51,7 +55,7 @@ spec:
                 name: external-node-test
                 port:
                   number: 8080
-    - host: hello-world-ingress.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: hello-world.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       http:
         paths:
           - path: /
