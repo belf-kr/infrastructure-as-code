@@ -45,7 +45,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: external-front-server.test
+                name: external-test-front-server
                 port:
                   number: 3000
     - host: node-test.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
