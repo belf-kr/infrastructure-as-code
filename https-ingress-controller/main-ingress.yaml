@@ -29,6 +29,9 @@ spec:
         - dev.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       secretName: tls-dev
     # qa
+    - hosts:
+        - qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+      secretName: tls-qa
     # prod
     - hosts:
         - belf.e654a42ba97247c3a6cb.koreacentral.aksapp.io
@@ -42,7 +45,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: external-front-server
+                name: external-front-server.test
                 port:
                   number: 3000
     - host: node-test.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
