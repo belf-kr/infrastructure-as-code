@@ -83,5 +83,26 @@ spec:
                 port:
                   number: 80
     # dev
+    - host: dev.e654a42ba97247c3a6cb.koreacentral.aksapp.io
     # qa
+    - host: qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: external-qa-front-server
+                port:
+                  number: 3000
     # prod
+    - host: belf.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: external-prod-front-server
+                port:
+                  number: 3000
