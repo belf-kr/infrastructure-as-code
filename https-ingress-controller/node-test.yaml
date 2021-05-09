@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: node
-          image: ghcr.io/parkgang/container-playground/image:698e5c20cbf05aac703511e7955dfd6a5b3d1d01
+          image: ghcr.io/parkgang/container-playground/image:latest
           env:
             - name: ENV_TEST
               value: 'k8s_run'
