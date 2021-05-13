@@ -30,6 +30,13 @@ kubectl get certificate -n ingress-basic
 kubectl apply -f main-ingress.yaml
 ```
 
+## 유용한 명령어
+
+```shell
+# ingress를 위한 external 시리즈로 svc 확인 가능
+kubectl get svc -n ingress-basic
+```
+
 # 이외
 
 ## 수신 구성 테스트
