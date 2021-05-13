@@ -45,6 +45,7 @@ kubectl get svc -n ingress-basic
 
 ```shell
 kubectl create ns test
+# 현재 정상 동작하지 않을 수 있습니다. [해당 issue를 확인해주세요](https://github.com/belf-kr/infrastructure-as-code/issues/1)
 kubectl apply -f ./test/aks-helloworld-one.yaml
 kubectl apply -f ./test/aks-helloworld-two.yaml
 kubectl apply -f ./test/node-test.yaml
