@@ -36,6 +36,9 @@ spec:
     - hosts:
         - qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       secretName: tls-qa
+    - hosts:
+        - api-gateway.qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+      secretName: tls-api-gateway.qa
     # prod
     - hosts:
         - belf.e654a42ba97247c3a6cb.koreacentral.aksapp.io
@@ -107,6 +110,16 @@ spec:
             backend:
               service:
                 name: external-qa-front-server
+                port:
+                  number: 3000
+    - host: api-gateway.qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: external-qa-api-gateway
                 port:
                   number: 3000
     # prod
