@@ -38,7 +38,7 @@ kubectl apply -f main-ingress.yaml
 
 ```shell
 kubectl create ns test
-kubectl apply -f aks-helloworld-one.yaml
-kubectl apply -f aks-helloworld-two.yaml
-kubectl apply -f node-test.yaml
+kubectl apply -f ./test/aks-helloworld-one.yaml
+kubectl apply -f ./test/aks-helloworld-two.yaml
+kubectl apply -f ./test/node-test.yaml
 ```
