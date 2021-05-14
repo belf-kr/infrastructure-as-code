@@ -77,7 +77,7 @@ spec:
                 name: external-test-api-gateway
                 port:
                   number: 3000
-    - host: api-gateway.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: oauth.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
       http:
         paths:
           - path: /
