@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: qa-mysql
+  name: qa-mysql-pv-claim
   namespace: qa
 spec:
   accessModes:
