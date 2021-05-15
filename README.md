@@ -24,3 +24,4 @@ k8s 및 전체적인 워크로드를 관리하기 위한 iac repo 입니다.
 
 1. [ingress](./https-ingress-controller)
 1. [storage](./storage)
+1. [db](./db)
