@@ -15,7 +15,7 @@ spec:
         app: mysql
     spec:
       containers:
-        - image: mysql:5.7
+        - image: ghcr.io/belf-kr/basic-mysql-5.7:latest
           name: mysql
           env:
             - name: MYSQL_ROOT_PASSWORD
