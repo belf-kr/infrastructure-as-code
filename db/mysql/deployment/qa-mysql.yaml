@@ -54,7 +54,7 @@ metadata:
 spec:
   type: LoadBalancer
   ports:
-    - port: 30000
+    - port: 3306
       targetPort: 3306
       protocol: TCP
   selector:
