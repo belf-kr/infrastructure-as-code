@@ -23,6 +23,13 @@ docker push ghcr.io/belf-kr/basic-mysql-5.7:v0.1.0
 qa 환경에서 사용되는 mysql db 입니다.  
 Azure File Storage를 사용합니다.
 
+### 배포 방법
+
+사전에 아래의 내용이 적용되어 있어야합니다.
+
+1. volumeMounts를 위한 `StorageClass` 활성화
+1. 접속 정보를 위한 `ConfigMap` 활성화
+
 ```shell
 cd deployment
 kubectl apply -f qa-mysql-pvc.yaml
