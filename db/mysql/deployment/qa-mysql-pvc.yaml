@@ -5,7 +5,7 @@ metadata:
   namespace: qa
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   storageClassName: belf-azurefiles
   resources:
     requests:
