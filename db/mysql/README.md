@@ -12,8 +12,8 @@ ORM을 위해 필요한 database가 미리 생성되어 있어야 합니다.
 
 ```shell
 cd basic-image
-docker build -t ghcr.io/belf-kr/basic-mysql-5.7:v0.1.0 .
-docker push ghcr.io/belf-kr/basic-mysql-5.7:v0.1.0
+docker build -t ghcr.io/belf-kr/basic-mysql-5.7.16:v0.1.0 .
+docker push ghcr.io/belf-kr/basic-mysql-5.7.16:v0.1.0
 ```
 
 # 종류
