@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql
+  namespace: qa
 spec:
   selector:
     matchLabels:
@@ -14,7 +15,7 @@ spec:
         app: mysql
     spec:
       containers:
-        - image: mysql:5.6
+        - image: mysql:5.7
           name: mysql
           env:
             # Use secret in real usage
@@ -35,6 +36,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql
+  namespace: qa
 spec:
   ports:
     - port: 3306
@@ -46,6 +48,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql-lb
+  namespace: qa
 spec:
   type: LoadBalancer
   ports:
