@@ -6,6 +6,9 @@ k8s 및 전체적인 워크로드를 관리하기 위한 iac repo 입니다.
 
 # k8s
 
+1. v1.19.9
+1. node 3개
+
 ## namespace
 
 1. test
