@@ -8,10 +8,12 @@ ORM을 위해 필요한 database가 미리 생성되어 있어야 합니다.
 
 아래의 작업을 필수적으로 진행합니다.
 
+> tag은 패치 내역에 맞게 동적으로 바꾸도록 합니다.
+
 ```shell
 cd basic-image
-docker build -t ghcr.io/belf-kr/basic-mysql-5.7 .
-docker push ghcr.io/belf-kr/basic-mysql-5.7
+docker build -t ghcr.io/belf-kr/basic-mysql-5.7:v0.1.0 .
+docker push ghcr.io/belf-kr/basic-mysql-5.7:v0.1.0
 ```
 
 # 종류
