@@ -22,7 +22,7 @@ spec:
               valueFrom:
                 configMapKeyRef:
                   name: qa-config
-                  key: MYSQL_ROOT_PASSWORD
+                  key: mysql-root-password
           ports:
             - containerPort: 3306
               name: mysql
