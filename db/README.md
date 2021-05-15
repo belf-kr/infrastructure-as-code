@@ -1,6 +1,7 @@
 # Hi
 
-DB 관련 Object를 관리합니다.
+DB 관련 Object를 관리합니다.  
+Storage 관련 Object는 해당 디렉터리에서 관리하지 않으며 mount만 진행합니다.
 
 # 종류
 
