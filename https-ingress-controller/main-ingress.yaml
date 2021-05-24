@@ -17,47 +17,47 @@ spec:
 
     # test
     - hosts:
-        - test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - test.belf.xyz
       secretName: tls-test
     - hosts:
-        - api-gateway.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - api-gateway.test.belf.xyz
       secretName: tls-api-gateway.test
     - hosts:
-        - oauth.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - oauth.test.belf.xyz
       secretName: tls-oauth.test
     - hosts:
-        - node-test.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - node-test.test.belf.xyz
       secretName: tls-node-test.test
     - hosts:
-        - hello-world.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - hello-world.test.belf.xyz
       secretName: tls-hello-world.test
     # dev
     - hosts:
-        - dev.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - dev.belf.xyz
       secretName: tls-dev
     # qa
     - hosts:
-        - qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - qa.belf.xyz
       secretName: tls-qa
     - hosts:
-        - api-gateway.qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - api-gateway.qa.belf.xyz
       secretName: tls-api-gateway.qa
     - hosts:
-        - oauth.qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - oauth.qa.belf.xyz
       secretName: tls-oauth.qa
     # prod
     - hosts:
-        - belf.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - belf.belf.xyz
       secretName: tls-belf
     - hosts:
-        - api-gateway.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - api-gateway.belf.xyz
       secretName: tls-api-gateway
     - hosts:
-        - oauth.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+        - oauth.belf.xyz
       secretName: tls-oauth
   rules:
     # test
-    - host: test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: test.belf.xyz
       http:
         paths:
           - path: /
@@ -67,7 +67,7 @@ spec:
                 name: external-test-front-server
                 port:
                   number: 3000
-    - host: api-gateway.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: api-gateway.test.belf.xyz
       http:
         paths:
           - path: /
@@ -77,7 +77,7 @@ spec:
                 name: external-test-api-gateway
                 port:
                   number: 3000
-    - host: oauth.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: oauth.test.belf.xyz
       http:
         paths:
           - path: /
@@ -87,7 +87,7 @@ spec:
                 name: external-test-oauth-server
                 port:
                   number: 3000
-    - host: node-test.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: node-test.test.belf.xyz
       http:
         paths:
           - path: /
@@ -97,7 +97,7 @@ spec:
                 name: external-test-node-test
                 port:
                   number: 8080
-    - host: hello-world.test.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: hello-world.test.belf.xyz
       http:
         paths:
           - path: /
@@ -122,9 +122,9 @@ spec:
                 port:
                   number: 80
     # dev
-    - host: dev.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: dev.belf.xyz
     # qa
-    - host: qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: qa.belf.xyz
       http:
         paths:
           - path: /
@@ -134,7 +134,7 @@ spec:
                 name: external-qa-front-server
                 port:
                   number: 3000
-    - host: api-gateway.qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: api-gateway.qa.belf.xyz
       http:
         paths:
           - path: /
@@ -144,7 +144,7 @@ spec:
                 name: external-qa-api-gateway
                 port:
                   number: 3000
-    - host: oauth.qa.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: oauth.qa.belf.xyz
       http:
         paths:
           - path: /
@@ -155,7 +155,7 @@ spec:
                 port:
                   number: 3000
     # prod
-    - host: belf.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: belf.belf.xyz
       http:
         paths:
           - path: /
@@ -165,7 +165,7 @@ spec:
                 name: external-prod-front-server
                 port:
                   number: 3000
-    - host: api-gateway.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: api-gateway.belf.xyz
       http:
         paths:
           - path: /
@@ -175,7 +175,7 @@ spec:
                 name: external-prod-api-gateway
                 port:
                   number: 3000
-    - host: oauth.e654a42ba97247c3a6cb.koreacentral.aksapp.io
+    - host: oauth.belf.xyz
       http:
         paths:
           - path: /
