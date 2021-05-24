@@ -4,10 +4,16 @@ k8s 및 전체적인 워크로드를 관리하기 위한 iac repo 입니다.
 각각의 디렉터리에 자세한 설명히 작성되어 있습니다.  
 보안상 중요한 config의 경우 `Private` repo에서 관리되고 있습니다.
 
-# k8s
+# Spec
+
+## k8s
 
 1. v1.19.9
 1. node 3개
+
+## helm
+
+1. v3.5.4
 
 ## namespace
 
