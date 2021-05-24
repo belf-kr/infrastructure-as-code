@@ -11,6 +11,8 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   tls:
+    # 🎇 DNS: belf.xyz 🎇
+
     # 주의❗️
     # Error Message: Error finalizing order :: CSR doesn't contain a SAN short enough to fit in CN
     # [CN는 최대 64자 까지만 가능합니다.](https://community.letsencrypt.org/t/certbot-errors-with-obtaining-a-new-certificate-an-unexpected-error-occurred-the-csr-is-unacceptable-e-g-due-to-a-short-key-error-finalizing-order-issuing-precertificate-csr-doesnt-contain-a-san-short-enough-to-fit-in-cn/105513)
@@ -47,8 +49,8 @@ spec:
       secretName: tls-oauth.qa
     # prod
     - hosts:
-        - belf.belf.xyz
-      secretName: tls-belf
+        - belf.xyz
+      secretName: tls-dns
     - hosts:
         - api-gateway.belf.xyz
       secretName: tls-api-gateway
@@ -155,7 +157,7 @@ spec:
                 port:
                   number: 3000
     # prod
-    - host: belf.belf.xyz
+    - host: belf.xyz
       http:
         paths:
           - path: /
