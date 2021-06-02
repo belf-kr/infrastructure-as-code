@@ -19,7 +19,7 @@
 
 1. v3.5.4
 
-## namespace
+# namespace
 
 | ns   | 논리적 용도                                                                                          |
 | ---- | ---------------------------------------------------------------------------------------------------- |
@@ -28,11 +28,11 @@
 | qa   | `prod`으로 넘어가기전 사용됩니다.                                                                    |
 | prod | 실 서비스 용도입니다.                                                                                |
 
-## rule
+# rule
 
 1. `yaml` 에 만드시 namespace를 명시합니다.
 
-## objects
+# objects
 
 1. [ingress](./https-ingress-controller)
 1. [storage](./storage)
