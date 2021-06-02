@@ -29,6 +29,7 @@ Azure File Storage를 사용합니다.
 
 1. volumeMounts를 위한 `StorageClass` 활성화
 1. 접속 정보를 위한 `ConfigMap` 활성화
+1. init sql를 위한 image으로 tag가 잘 지정됫는지 확인
 
 ```shell
 cd deployment
@@ -41,3 +42,18 @@ kubectl apply -f qa-mysql.yaml
 prod 환경에서 사용되는 mysql db 입니다.  
 `master`, `slave` 이루어진 mysql replication 입니다.  
 Azure Disk Storage를 사용합니다.
+
+### 배포 방법
+
+사전에 아래의 내용이 적용되어 있어야합니다.
+
+1. volumeMounts를 위한 `default StorageClass` 활성화
+   > 여기서는 AKS에서 기본으로 제공하는 StorageClass의 `Azure Disk` 를 사용하기 때문에 따로 건드릴 것은 없습니다.
+1. init sql를 위한 image으로 tag가 잘 지정됫는지 확인
+
+```shell
+cd replicated-stateful
+kubectl apply -f prod-mysql-cm.yaml
+kubectl apply -f prod-mysql-svc.yaml
+kubectl apply -f prod-mysql.yaml
+```
