@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql
+  labels:
+    app: mysql
+data:
+  master.cnf: |
+    # master 에만 이 구성을 적용합니다.
+    [mysqld]
+    log-bin
+  slave.cnf: |
+    # slaves 에만 이 구성을 적용합니다.
+    [mysqld]
+    super-read-only
