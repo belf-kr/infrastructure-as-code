@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: qa-redis-pv-claim
+  namespace: qa
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: belf-azurefiles
+  resources:
+    requests:
+      storage: 1Gi
