@@ -9,4 +9,4 @@ spec:
   storageClassName: belf-azurefiles
   resources:
     requests:
-      storage: 50MiB
+      storage: 1Gi
