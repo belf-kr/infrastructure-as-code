@@ -155,7 +155,7 @@ spec:
               service:
                 name: external-qa-oauth-server
                 port:
-                  number: 3000
+                  number: 8080
     # prod
     - host: belf.xyz
       http:
@@ -186,4 +186,4 @@ spec:
               service:
                 name: external-prod-oauth-server
                 port:
-                  number: 3000
+                  number: 8080
