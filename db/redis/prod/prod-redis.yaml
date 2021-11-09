@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: redis
-  namespace: qa
+  namespace: prod
 spec:
   selector:
     matchLabels:
@@ -40,10 +40,10 @@ spec:
       volumes:
         - name: redis-persistent-storage
           persistentVolumeClaim:
-            claimName: qa-redis-pv-claim
+            claimName: prod-redis-pv-claim
         - name: config
           configMap:
-            name: qa-config
+            name: prod-config
             items:
               - key: redis-config
                 path: redis.conf
@@ -52,24 +52,10 @@ apiVersion: v1
 kind: Service
 metadata:
   name: redis
-  namespace: qa
+  namespace: prod
 spec:
   ports:
     - port: 6379
   selector:
     app: redis
   clusterIP: None
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: redis-lb
-  namespace: qa
-spec:
-  type: LoadBalancer
-  ports:
-    - port: 6379
-      targetPort: 6379
-      protocol: TCP
-  selector:
-    app: redis

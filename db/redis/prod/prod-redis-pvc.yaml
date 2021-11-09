@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: qa-redis-pv-claim
-  namespace: qa
+  name: prod-redis-pv-claim
+  namespace: prod
 spec:
   accessModes:
     - ReadWriteOnce
