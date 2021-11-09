@@ -1,37 +1,75 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: redis
+  namespace: qa
 spec:
-  containers:
-    - name: redis
-      image: redis:6.2.4-alpine
-      command:
-        - redis-server
-        - "/redis-master/redis.conf"
-      env:
-        - name: MASTER
-          value: "true"
-      ports:
-        - containerPort: 6379
-      resources:
-        requests:
-          cpu: 100m
-          memory: 50Mi
-        limits:
-          cpu: 100m
-          memory: 50Mi
-      volumeMounts:
-        - name: data
-          mountPath: /redis-master-data
+  selector:
+    matchLabels:
+      app: redis
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+        - image: redis:6.2.4-alpine
+          name: redis
+          command:
+            - redis-server
+            - "/redis-master/redis.conf"
+          env:
+            - name: MASTER
+              value: "true"
+          ports:
+            - containerPort: 6379
+          resources:
+            requests:
+              cpu: 100m
+              memory: 50Mi
+            limits:
+              cpu: 100m
+              memory: 50Mi
+          volumeMounts:
+            - name: redis-persistent-storage
+              mountPath: /data
+            - name: config
+              mountPath: /redis-master
+      volumes:
+        - name: redis-persistent-storage
+          persistentVolumeClaim:
+            claimName: qa-redis-pv-claim
         - name: config
-          mountPath: /redis-master
-  volumes:
-    - name: data
-      emptyDir: {}
-    - name: config
-      configMap:
-        name: example-redis-config
-        items:
-          - key: redis-config
-            path: redis.conf
+          configMap:
+            name: qa-config
+            items:
+              - key: redis-config
+                path: redis.conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis
+  namespace: qa
+spec:
+  ports:
+    - port: 6379
+  selector:
+    app: redis
+  clusterIP: None
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-lb
+  namespace: qa
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 6379
+      targetPort: 6379
+      protocol: TCP
+  selector:
+    app: redis
