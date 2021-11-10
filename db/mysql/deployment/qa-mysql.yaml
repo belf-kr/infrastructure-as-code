@@ -17,6 +17,12 @@ spec:
       containers:
         - image: ghcr.io/belf-kr/basic-mysql-5.7.16:v0.1.0
           name: mysql
+          command:
+            # 한글과 이모지 입력을 위하여 기본 문자셋 인코딩 변경
+            - mysqld
+            - --user=mysql
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
           env:
             - name: MYSQL_ROOT_PASSWORD
               valueFrom:
@@ -26,6 +32,13 @@ spec:
           ports:
             - containerPort: 3306
               name: mysql
+          resources:
+            requests:
+              cpu: 100m
+              memory: 300Mi
+            limits:
+              cpu: 100m
+              memory: 300Mi
           volumeMounts:
             - name: mysql-persistent-storage
               mountPath: /var/lib/mysql

@@ -16,7 +16,7 @@ spec:
     spec:
       initContainers:
         - name: init-mysql
-          image: ghcr.io/belf-kr/basic-mysql-5.7.16:v0.1.0
+          image: bash:alpine3.14
           command:
             - bash
             - "-c"
@@ -65,6 +65,12 @@ spec:
       containers:
         - name: mysql
           image: ghcr.io/belf-kr/basic-mysql-5.7.16:v0.1.0
+          command:
+            # 한글과 이모지 입력을 위하여 기본 문자셋 인코딩 변경
+            - mysqld
+            - --user=mysql
+            - --character-set-server=utf8mb4
+            - --collation-server=utf8mb4_unicode_ci
           env:
             - name: MYSQL_ALLOW_EMPTY_PASSWORD
               value: "1"
