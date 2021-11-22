@@ -47,6 +47,9 @@ spec:
     - hosts:
         - oauth.qa.belf.xyz
       secretName: tls-oauth.qa
+    - hosts:
+        - storage.qa.belf.xyz
+      secretName: tls-storage.qa
     # prod
     - hosts:
         - belf.xyz
@@ -57,6 +60,9 @@ spec:
     - hosts:
         - oauth.belf.xyz
       secretName: tls-oauth
+    - hosts:
+        - storage.belf.xyz
+      secretName: tls-storage
   rules:
     # test
     - host: test.belf.xyz
@@ -156,6 +162,16 @@ spec:
                 name: external-qa-oauth-server
                 port:
                   number: 8080
+    - host: storage.qa.belf.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: external-qa-storage-service
+                port:
+                  number: 8000
     # prod
     - host: belf.xyz
       http:
@@ -187,3 +203,13 @@ spec:
                 name: external-prod-oauth-server
                 port:
                   number: 8080
+    - host: storage.belf.xyz
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: external-prod-storage-service
+                port:
+                  number: 8000
