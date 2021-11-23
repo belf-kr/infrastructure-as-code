@@ -57,3 +57,37 @@ kubectl apply -f prod-mysql-cm.yaml
 kubectl apply -f prod-mysql-svc.yaml
 kubectl apply -f prod-mysql.yaml
 ```
+
+# mysql-cli
+
+`prod` 환경의 경우 외부에서 접속할 수 없도록 되어있습니다.  
+때문에 db에 접속해서 query를 실행하고 싶은 경우 k8s cluster에 mysql container를 배포 후 컨테이너 내부를 통하여 접속해야합니다.
+
+> 아래에 있는 환경에 따른 접속방법은 템플릿으로만 사용하세요 접속 주소는 언제든지 변경될 수 있음으로 `config-map` 를 참고하도록 합니다.
+
+## container 실행
+
+```shell
+kubectl run mysql-client --image=mysql:5.7 -it --rm --restart=Never -- /bin/bash
+```
+
+## qa
+
+```shell
+$ mysql -h mysql.qa -u {사용자이름} -p
+$ Enter password: {비밀번호}
+```
+
+## prod: master
+
+```shell
+$ mysql -h mysql-0.mysql.prod -u {사용자이름} -p
+$ Enter password: {비밀번호}
+```
+
+## prod: slave
+
+```shell
+$ mysql -h mysql-read.prod -u {사용자이름} -p
+$ Enter password: {비밀번호}
+```
