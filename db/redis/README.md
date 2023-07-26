@@ -1,5 +1,7 @@
 # Hi
 
+[`한국어(KR)`](./README.md) | [English](./README.en-US.md)
+
 redis object를 관리합니다.  
 jwt token을 저장하기위한 db로 사용됩니다.
 
