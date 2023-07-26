@@ -1,9 +1,11 @@
 # Hi
 
+[`한국어(KR)`](./README.md) | [English](./README.en-US.md)
+
 HTTP ingress를 생성하는 방법에 대해 가이드합니다.  
 사전에 [해당 문서](https://docs.microsoft.com/ko-kr/azure/aks/ingress-tls)를 통해 `NGINX 수신 컨트롤러`, `인증서 관리자 컨트롤러` 활성화를 필수 조건으로 합니다.
 
-# Let's Encrypt 발급자 생성
+# `Let's Encrypt` 발급자 생성
 
 ```shell
 kubectl apply -f cluster-issuer.yaml

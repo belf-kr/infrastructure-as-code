@@ -1,5 +1,7 @@
 # Hi
 
+[`한국어(KR)`](./README.md) | [English](./README.en-US.md)
+
 파일을 저장하는 storage 오브젝트입니다. Azure Files를 사용하며 주로 `파일 공유` 기능을 사용합니다.
 
 # 할당 방법
