@@ -1,5 +1,7 @@
 # infrastructure-as-code
 
+[`한국어(KR)`](./README.md) | [English](./README.en-US.md)
+
 서비스 리소스를 관리하기 위한 iac repo 입니다.
 
 > 주로 k8s를 관리하고 있습니다.
